@@ -21,7 +21,6 @@
         grid-template-columns: repeat(3, 1fr);
         position: absolute;
         transform: translateX(150%) translateY(150%);
-        
       }
       .time {
         font-weight: bolder;
@@ -29,7 +28,7 @@
         grid-column: 1 / span 2;
         align-items: center;
         border: 10px;
-        border-style:double;
+        border-style: double;
         border-color: black;
         margin: 10px 10px;
       }
@@ -37,94 +36,178 @@
         font-weight: bold;
         background-color: rgb(202, 92, 92);
         border: 10px;
-        border-style:double;
+        border-style: double;
         border-color: black;
         margin: 10px 10px;
         border-radius: 40px;
       }
       .ptag1 {
         transform: translateX(10%) translateY(16%);
-    font-size: 36px;
+        font-size: 36px;
       }
       .ptag2 {
         transform: translateX(8%) translateY(44%);
-        font-weight:900;
+        font-weight: 900;
         font-size: 20px;
       }
-      
+      #tiTle {
+        margin-top: 0;
+        margin-bottom: 0;
+        grid-column: 1/3;
+        grid-row: 2/3;
+        transform: translateX(40%) translateY(-30%);
+        font-size: 40px;
+        font-weight: bolder;
+        color: red;
+      }
+      @media only screen and (max-width: 464px) {
+        .clock {
+          height: 271px;
+          width: 464px;
+          background-color: rgb(19, 201, 19);
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          position: relative;
+          transform: translateX(0%) translateY(40%);
+        }
+        .time {
+          font-weight: bolder;
+          background-color: orange;
+          grid-column: 1 / span 2;
+          align-items: center;
+          border: 10px;
+          border-style: double;
+          border-color: black;
+          margin: 38px 26px;
+        }
+        .date {
+          font-weight: bold;
+          background-color: rgb(222, 57, 92);
+          border: 10px;
+          border-style: double;
+          border-color: black;
+          margin: 27px 5px;
+          border-radius: 41px;
+        }
+        .ptag1 {
+          transform: translateX(10%) translateY(16%);
+          font-size: 36px;
+        }
+        .ptag2 {
+          transform: translateX(4%) translateY(20%);
+          font-weight: 900;
+          font-size: 26px;
+        }
+        #tiTle {
+          margin-top: 0;
+          margin-bottom: 0;
+          transform: translateX(40%) translateY(-30%);
+          font-size: 40px;
+          font-weight: bolder;
+          color: red;
+        }
+      }
+      @media only screen and (min-width: 464px) and (max-width: 760px) {
+        .clock {
+          height: 271px;
+          width: 464px;
+          background-color: rgb(19, 201, 19);
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          position: relative;
+          transform: translateX(36%) translateY(40%);
+          animation-name: myMove;
+        }
+        .time {
+          font-weight: bolder;
+          background-color: orange;
+          grid-column: 1 / span 2;
+          align-items: center;
+          border: 10px;
+          border-style: double;
+          border-color: black;
+          margin: 38px 26px;
+        }
+        .date {
+          font-weight: bold;
+          background-color: rgb(222, 57, 92);
+          border: 10px;
+          border-style: double;
+          border-color: black;
+          margin: 27px 5px;
+          border-radius: 41px;
+        }
+        .ptag1 {
+          transform: translateX(10%) translateY(16%);
+          font-size: 36px;
+        }
+        .ptag2 {
+          transform: translateX(4%) translateY(20%);
+          font-weight: 900;
+          font-size: 26px;
+        }
+        #tiTle {
+          margin-top: 0;
+          margin-bottom: 0;
+          transform: translateX(40%) translateY(-30%);
+          font-size: 40px;
+          font-weight: bolder;
+          color: red;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="clock">
       <div class="time"><p class="ptag1" id="MyClockDisplay"></p></div>
       <div class="date"><p class="ptag2" id="MyDate">05 Aug, 2021</p></div>
-      <div style="transform: translateX(100%); font-size:25px;font-weight: bolder;color:red;">Digital Clock</div>
+      <p id="tiTle">Digital Clock</p>
     </div>
-    <script>function showTime(){
-      var date = new Date();
-      var d=date.getDate();
-      var mon=1+date.getMonth();
-      var yr=date.getFullYear();
-      var h = date.getHours(); // 0 - 23
-      var m = date.getMinutes(); // 0 - 59
-      var s = date.getSeconds(); // 0 - 59
-      var session = "AM";
-      
-      if(h == 0){
+    <script>
+      function showTime() {
+        var date = new Date();
+        var d = date.getDate();
+        var mon =  date.getMonth();
+        var yr = date.getFullYear();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        var session = "AM";
+        
+        if (h == 0) {
           h = 12;
-      }
-      
-      if(h > 12){
+        }
+        if (h > 12) {
           h = h - 12;
           session = "PM";
+        }
+        
+       const monthArray = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+        var myDate = d + "," + monthArray[mon] + "\n" + yr;
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+        document.getElementById("MyDate").innerText = myDate;
+        setTimeout(showTime, 1000);
       }
-     if(mon==4){
-       mon="April";
-     }
-     if(mon==2){
-       mon="February";
-     }
-     if(mon==3){
-       mon="March";
-     }
-     if(mon==5){
-       mon="May";
-     }
-     if(mon==6){
-       mon="June";
-     }
-     if(mon==7){ 
-       mon="July";
-     }
-     if(mon==8){
-       mon="August";
-     }
-     if(mon==9){
-       mon="September";
-     }
-     if(mon==10){
-       mon="October";
-     }
-     if(mon==11){
-       mon="November";
-     }
-     if(mon==12){
-       mon="December";
-     }
-      h = (h < 10) ? "0" + h : h;
-      m = (m < 10) ? "0" + m : m;
-      s = (s < 10) ? "0" + s : s;
-      var myDate=d+","+mon+"\n"+ yr;
-      var time = h + ":" + m + ":" + s + " " + session;
-      document.getElementById("MyClockDisplay").innerText = time;
-      document.getElementById("MyClockDisplay").textContent = time;
-      document.getElementById("MyDate").innerText = myDate;
-      
-      setTimeout(showTime, 1000);
-      
-  }
-  
-  showTime();
+
+      showTime();
     </script>
   </body>
 </html>
