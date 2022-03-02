@@ -1,0 +1,148 @@
+body {
+        background-color: black;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      .clock {
+        height: 200px;
+        width: 400px;
+        background-color: rgb(19, 201, 19);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        position: absolute;
+        transform: translateX(150%) translateY(150%);
+      }
+      .time {
+        font-weight: bolder;
+        background-color: orange;
+        grid-column: 1 / span 2;
+        align-items: center;
+        border: 10px;
+        border-style: double;
+        border-color: black;
+        margin: 10px 10px;
+      }
+      .date {
+        font-weight: bold;
+        background-color: rgb(202, 92, 92);
+        border: 10px;
+        border-style: double;
+        border-color: black;
+        margin: 10px 10px;
+        border-radius: 40px;
+      }
+      .ptag1 {
+        transform: translateX(10%) translateY(16%);
+        font-size: 36px;
+      }
+      .ptag2 {
+        transform: translateX(8%) translateY(44%);
+        font-weight: 900;
+        font-size: 20px;
+      }
+      #tiTle {
+        margin-top: 0;
+        margin-bottom: 0;
+        grid-column: 1/3;
+        grid-row: 2/3;
+        transform: translateX(40%) translateY(-30%);
+        font-size: 40px;
+        font-weight: bolder;
+        color: red;
+      }
+      @media only screen and (max-width: 464px) {
+        .clock {
+          height: 271px;
+          width: 464px;
+          background-color: rgb(19, 201, 19);
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          position: relative;
+          transform: translateX(0%) translateY(40%);
+        }
+        .time {
+          font-weight: bolder;
+          background-color: orange;
+          grid-column: 1 / span 2;
+          align-items: center;
+          border: 10px;
+          border-style: double;
+          border-color: black;
+          margin: 38px 26px;
+        }
+        .date {
+          font-weight: bold;
+          background-color: rgb(222, 57, 92);
+          border: 10px;
+          border-style: double;
+          border-color: black;
+          margin: 27px 5px;
+          border-radius: 41px;
+        }
+        .ptag1 {
+          transform: translateX(10%) translateY(16%);
+          font-size: 36px;
+        }
+        .ptag2 {
+          transform: translateX(4%) translateY(20%);
+          font-weight: 900;
+          font-size: 26px;
+        }
+        #tiTle {
+          margin-top: 0;
+          margin-bottom: 0;
+          transform: translateX(40%) translateY(-30%);
+          font-size: 40px;
+          font-weight: bolder;
+          color: red;
+        }
+      }
+      @media only screen and (min-width: 464px) and (max-width: 760px) {
+        .clock {
+          height: 271px;
+          width: 464px;
+          background-color: rgb(19, 201, 19);
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          position: relative;
+          transform: translateX(36%) translateY(40%);
+          animation-name: myMove;
+        }
+        .time {
+          font-weight: bolder;
+          background-color: orange;
+          grid-column: 1 / span 2;
+          align-items: center;
+          border: 10px;
+          border-style: double;
+          border-color: black;
+          margin: 38px 26px;
+        }
+        .date {
+          font-weight: bold;
+          background-color: rgb(222, 57, 92);
+          border: 10px;
+          border-style: double;
+          border-color: black;
+          margin: 27px 5px;
+          border-radius: 41px;
+        }
+        .ptag1 {
+          transform: translateX(10%) translateY(16%);
+          font-size: 36px;
+        }
+        .ptag2 {
+          transform: translateX(4%) translateY(20%);
+          font-weight: 900;
+          font-size: 26px;
+        }
+        #tiTle {
+          margin-top: 0;
+          margin-bottom: 0;
+          transform: translateX(40%) translateY(-30%);
+          font-size: 40px;
+          font-weight: bolder;
+          color: red;
+        }
+      }
